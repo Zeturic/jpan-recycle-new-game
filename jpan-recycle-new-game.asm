@@ -1,7 +1,7 @@
 // change these constants as needed
 
 rom equ "firered.gba"
-.definelabel free_space, 0x08800002
+.definelabel free_space, 0x08800000
 
 .definelabel jpan_block, 0x0203C000
 
