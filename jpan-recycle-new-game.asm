@@ -1,17 +1,32 @@
-.gba
-.arm
-.include "constants.s"
+// change these constants as needed
 
-.thumb
-.include "functions.s"
+rom equ "firered.gba"
+.definelabel free_space, 0x08800002
 
-.open "test.gba", 0x08000000
+.definelabel jpan_block, 0x0203C000
 
 // -----------------------------------------------------------------------------
 
-.org allocation
+JPAN_BLOCK_SIZE equ 0xEC4
 
-.area allocation_size
+.definelabel memset, 0x081E5ED8
+.definelabel sub_815EE0C, 0x0815EE0C
+.definelabel new_game_hook, 0x08054B3E
+
+// -----------------------------------------------------------------------------
+
+.gba
+.thumb
+
+.open rom, 0x08000000
+
+// -----------------------------------------------------------------------------
+
+.org free_space
+
+.area 48
+    .align 2
+    
     new_game_extension:
     
     @@main:
